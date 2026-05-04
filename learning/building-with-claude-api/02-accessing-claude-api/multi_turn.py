@@ -21,12 +21,32 @@ client = Anthropic()
 model = "claude-sonnet-4-6"
 
 
-# TODO: реализовать helper-функции
-# def add_user_message(messages, text): ...
-# def add_assistant_message(messages, text): ...
-# def chat(messages) -> str: ...
+def add_user_message(messages, text):
+    messages.append({'role': 'user', 'content': text})
+
+
+def add_assistant_message(messages, text):
+    messages.append({'role': 'assistant', 'content': text})
+
+
+def chat(messages: list):
+    message = client.messages.create(
+        model=model,
+        max_tokens=1000,
+        messages=messages,
+    )
+    return message.content[0].text
 
 
 if __name__ == "__main__":
-    # TODO: построить диалог из двух раундов
-    pass
+    messages = []
+
+    add_user_message(messages, "что такое ислам? Ответь одним предложением.")
+    answer_1 = chat(messages)
+    add_assistant_message(messages, answer_1)
+    print("Round 1:", answer_1)
+
+    add_user_message(messages, "напиши ещё одно предложение")
+    answer_2 = chat(messages)
+    add_assistant_message(messages, answer_2)
+    print("Round 2:", answer_2)
