@@ -12,8 +12,12 @@
        (или просто из IDE)
 """
 
+import sys
+
 from dotenv import load_dotenv
 from anthropic import Anthropic
+
+sys.stdin.reconfigure(encoding="utf-8", errors="replace")
 
 load_dotenv()
 
@@ -41,12 +45,14 @@ def chat(messages: list):
 if __name__ == "__main__":
     messages = []
 
-    add_user_message(messages, "что такое ислам? Ответь одним предложением.")
-    answer_1 = chat(messages)
-    add_assistant_message(messages, answer_1)
-    print("Round 1:", answer_1)
+    while True:
+        user_input = input("> ")
+        print(">", user_input)
 
-    add_user_message(messages, "напиши ещё одно предложение")
-    answer_2 = chat(messages)
-    add_assistant_message(messages, answer_2)
-    print("Round 2:", answer_2)
+        add_user_message(messages, user_input)
+        answer = chat(messages)
+        add_assistant_message(messages, answer)
+        # Print the generated text
+        print("---")
+        print(answer)
+        print("---")
