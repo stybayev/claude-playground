@@ -33,11 +33,18 @@ def add_assistant_message(messages, text):
     messages.append({'role': 'assistant', 'content': text})
 
 
-def chat(messages: list):
+def chat(messages: list, system: str | None = None):
+    params = {
+        'model': model,
+        'max_tokens': 1000,
+        'messages': messages,
+    }
+
+    if system:
+        params['system'] = system
+
     message = client.messages.create(
-        model=model,
-        max_tokens=1000,
-        messages=messages,
+        **params
     )
     return message.content[0].text
 
@@ -45,14 +52,12 @@ def chat(messages: list):
 if __name__ == "__main__":
     messages = []
 
-    while True:
-        user_input = input("> ")
-        print(">", user_input)
-
-        add_user_message(messages, user_input)
-        answer = chat(messages)
-        add_assistant_message(messages, answer)
-        # Print the generated text
-        print("---")
-        print(answer)
-        print("---")
+    add_user_message(
+        messages,
+        "Напиши функцию на Python, которая проверяет строку на дубликаты символов.",
+    )
+    answer = chat(
+        messages,
+        system="Ты Python-инженер, который пишет очень лаконичный код.",
+    )
+    print(answer)
