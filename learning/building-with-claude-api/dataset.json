@@ -1,0 +1,11 @@
+[
+  {
+    "task": "Write a Python function that validates an AWS S3 bucket name according to AWS naming rules (3-63 characters, lowercase letters, numbers, hyphens only, must start and end with letter or number)"
+  },
+  {
+    "task": "Write a regular expression that matches valid AWS IAM role ARNs in the format arn:aws:iam::123456789012:role/service-role/RoleName"
+  },
+  {
+    "task": "Create a JSON object representing an AWS Lambda function configuration with required fields: FunctionName, Runtime (python3.11), Role ARN, Handler (index.handler), Timeout (30 seconds), and MemorySize (128 MB)"
+  }
+]
