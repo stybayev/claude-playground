@@ -1,14 +1,14 @@
 [
   {
-    "task": "Extract all S3 bucket names from AWS CloudFormation template output",
+    "task": "Parse an AWS S3 bucket name from a full S3 URI (e.g., 's3://my-bucket/path/to/file.txt') and extract just the bucket name",
     "format": "regex"
   },
   {
-    "task": "Create a JSON policy document that allows read-only access to a specific S3 bucket",
+    "task": "Create a JSON configuration object for an AWS Lambda function that specifies the runtime as 'python3.11', timeout as 60 seconds, and memory as 256 MB",
     "format": "json"
   },
   {
-    "task": "Write a Python function that validates AWS access key format (AKIA followed by 16 alphanumeric characters)",
+    "task": "Write a Python function that takes an AWS EC2 instance ID as input and returns True if the ID follows the valid format (i-followed by 17 hexadecimal characters), False otherwise",
     "format": "python"
   }
 ]
