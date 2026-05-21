@@ -1,11 +1,14 @@
 [
   {
-    "task": "Write a Python function that extracts the AWS account ID from an ARN string (e.g., 'arn:aws:s3:::my-bucket')"
+    "task": "Extract all S3 bucket names from AWS CloudFormation template output",
+    "format": "regex"
   },
   {
-    "task": "Create a JSON object representing an AWS IAM policy that allows read-only access to a specific S3 bucket named 'my-data-bucket'"
+    "task": "Create a JSON policy document that allows read-only access to a specific S3 bucket",
+    "format": "json"
   },
   {
-    "task": "Write a regular expression that matches valid AWS S3 bucket names (3-63 characters, lowercase letters, numbers, and hyphens only, cannot start or end with a hyphen)"
+    "task": "Write a Python function that validates AWS access key format (AKIA followed by 16 alphanumeric characters)",
+    "format": "python"
   }
 ]
